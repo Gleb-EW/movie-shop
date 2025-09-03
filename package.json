@@ -1,0 +1,24 @@
+{
+  "name": "movie-shop",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+  "test": "jest"
+}
+,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gleb-EW/movie-shop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gleb-EW/movie-shop/issues"
+  },
+  "homepage": "https://github.com/Gleb-EW/movie-shop#readme",
+  "description": "",
+  "devDependencies": {
+    "jest": "^30.1.3"
+  }
+}

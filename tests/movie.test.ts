@@ -1,4 +1,4 @@
-const Movie = require('../src/movie.js');
+import { Movie } from '../src/movie';
 
 describe('Movie', () => {
   test('создаёт объект фильма с правильными полями', () => {
@@ -25,7 +25,7 @@ describe('Movie', () => {
   });
 
   test('фильм можно добавить в корзину', () => {
-    const cart = [];
+    const cart: Movie[] = [];
     const movie = new Movie({
       id: 2,
       title: 'Железный человек',

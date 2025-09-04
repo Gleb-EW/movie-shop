@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-  "test": "jest"
-}
-,
+    "test": "jest"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Gleb-EW/movie-shop.git"
@@ -19,6 +18,9 @@
   "homepage": "https://github.com/Gleb-EW/movie-shop#readme",
   "description": "",
   "devDependencies": {
-    "jest": "^30.1.3"
+    "@types/jest": "^30.0.0",
+    "jest": "^30.1.3",
+    "ts-jest": "^29.4.1",
+    "typescript": "^5.9.2"
   }
 }

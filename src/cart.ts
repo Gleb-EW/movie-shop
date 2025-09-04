@@ -1,7 +1,7 @@
 export interface Item {
-  id: number;
-  title: string;
-  price: number;
+  readonly id: number;
+  readonly name: string;
+  readonly price: number;
 }
 
 export class Cart {
@@ -11,30 +11,15 @@ export class Cart {
     this.items.push(item);
   }
 
-  remove(item: Item): void {
-    const index = this.items.indexOf(item);
-    if (index > -1) {
-      this.items.splice(index, 1);
-    }
-  }
-
-  removeById(id: number): void {
-    this.items = this.items.filter(item => item.id !== id);
-  }
-
   getItems(): Item[] {
-    return this.items;
+    return [...this.items];
   }
 
-  getTotalPrice(): number {
+  getTotal(): number {
     return this.items.reduce((sum, item) => sum + item.price, 0);
   }
 
-  getTotalPriceWithDiscount(discount: number): number {
-    return this.getTotalPrice() * (1 - discount / 100);
-  }
-
-  getTotalCount(): number {
-    return this.items.length;
+  clear(): void {
+    this.items = [];
   }
 }

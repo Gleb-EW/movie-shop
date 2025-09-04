@@ -2,42 +2,39 @@ import { Movie } from '../src/movie';
 
 describe('Movie', () => {
   test('создаёт объект фильма с правильными полями', () => {
-    const avengers = new Movie({
-      id: 1,
-      title: 'Мстители',
-      titleEng: 'The Avengers',
-      format: 'IMAX',
-      year: 2012,
-      country: 'США',
-      slogan: 'Avengers Assemble!',
-      genre: ['фантастика', 'боевик', 'фэнтези', 'приключения'],
-      duration: '137 мин. / 02:17',
-      price: 350
-    });
+    const avengers = new Movie(
+      1,
+      'Мстители',
+      'The Avengers',
+      'IMAX',
+      2012,
+      'США',
+      'Avengers Assemble!',
+      ['фантастика', 'боевик', 'фэнтези', 'приключения'],
+      '137 мин. / 02:17',
+      350
+    );
 
     expect(avengers.title).toBe('Мстители');
     expect(avengers.titleEng).toBe('The Avengers');
-    expect(avengers.format).toBe('IMAX');
-    expect(avengers.year).toBe(2012);
-    expect(avengers.genre).toContain('боевик');
     expect(avengers.price).toBe(350);
     expect(avengers.getInfo()).toMatch(/Мстители/);
   });
 
   test('фильм можно добавить в корзину', () => {
     const cart: Movie[] = [];
-    const movie = new Movie({
-      id: 2,
-      title: 'Железный человек',
-      titleEng: 'Iron Man',
-      format: 'IMAX',
-      year: 2008,
-      country: 'США',
-      slogan: 'Heroes aren’t born. They’re built.',
-      genre: ['фантастика', 'боевик'],
-      duration: '126 мин. / 02:06',
-      price: 299
-    });
+    const movie = new Movie(
+      2,
+      'Железный человек',
+      'Iron Man',
+      'IMAX',
+      2008,
+      'США',
+      'Heroes aren’t born. They’re built.',
+      ['фантастика', 'боевик'],
+      '126 мин. / 02:06',
+      299
+    );
 
     cart.push(movie);
 

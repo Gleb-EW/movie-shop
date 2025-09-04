@@ -1,40 +1,29 @@
 export interface MovieOptions {
-  id: number;
-  title: string;
-  titleEng: string;
-  format: string;
-  year: number;
-  country: string;
-  slogan: string;
-  genre: string[];
-  duration: string;
-  price: number;
+  readonly id: number;
+  readonly title: string;
+  readonly titleEng: string;
+  readonly format: string;
+  readonly year: number;
+  readonly country: string;
+  readonly slogan: string;
+  readonly genre: string[];
+  readonly duration: string;
+  readonly price: number;
 }
 
 export class Movie {
-  id: number;
-  title: string;
-  titleEng: string;
-  format: string;
-  year: number;
-  country: string;
-  slogan: string;
-  genre: string[];
-  duration: string;
-  price: number;
-
-  constructor(options: MovieOptions) {
-    this.id = options.id;
-    this.title = options.title;
-    this.titleEng = options.titleEng;
-    this.format = options.format;
-    this.year = options.year;
-    this.country = options.country;
-    this.slogan = options.slogan;
-    this.genre = options.genre;
-    this.duration = options.duration;
-    this.price = options.price;
-  }
+  constructor(
+    readonly id: number,
+    readonly title: string,
+    readonly titleEng: string,
+    readonly format: string,
+    readonly year: number,
+    readonly country: string,
+    readonly slogan: string,
+    readonly genre: string[],
+    readonly duration: string,
+    readonly price: number
+  ) {}
 
   getInfo(): string {
     return `

@@ -1,46 +1,29 @@
 import { Cart, Item } from '../src/cart';
 
 describe('Cart', () => {
-  let cart: Cart;
-  let item1: Item;
-  let item2: Item;
+  test('добавление товара в корзину', () => {
+    const cart = new Cart();
+    const item: Item = { id: 1, name: 'Товар 1', price: 100 };
+    cart.add(item);
 
-  beforeEach(() => {
-    cart = new Cart();
-    item1 = { id: 1, title: 'Item 1', price: 100 };
-    item2 = { id: 2, title: 'Item 2', price: 200 };
+    expect(cart.getItems().length).toBe(1);
+    expect(cart.getItems()[0].name).toBe('Товар 1');
+    expect(cart.getItems()[0].price).toBe(100);
   });
 
-  test('добавление и получение товаров', () => {
-    cart.add(item1);
-    cart.add(item2);
-    expect(cart.getItems()).toEqual([item1, item2]);
+  test('подсчёт общей стоимости', () => {
+    const cart = new Cart();
+    cart.add({ id: 1, name: 'Товар 1', price: 100 });
+    cart.add({ id: 2, name: 'Товар 2', price: 200 });
+
+    expect(cart.getTotal()).toBe(300);
   });
 
-  test('удаление товара по объекту', () => {
-    cart.add(item1);
-    cart.add(item2);
-    cart.remove(item1);
-    expect(cart.getItems()).toEqual([item2]);
-  });
+  test('очистка корзины', () => {
+    const cart = new Cart();
+    cart.add({ id: 1, name: 'Товар 1', price: 100 });
+    cart.clear();
 
-  test('удаление товара по id', () => {
-    cart.add(item1);
-    cart.add(item2);
-    cart.removeById(2);
-    expect(cart.getItems()).toEqual([item1]);
-  });
-
-  test('расчёт общей цены', () => {
-    cart.add(item1);
-    cart.add(item2);
-    expect(cart.getTotalPrice()).toBe(300);
-    expect(cart.getTotalPriceWithDiscount(10)).toBe(270);
-  });
-
-  test('подсчёт количества товаров', () => {
-    cart.add(item1);
-    cart.add(item2);
-    expect(cart.getTotalCount()).toBe(2);
+    expect(cart.getItems().length).toBe(0);
   });
 });
